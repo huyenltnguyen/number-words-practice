@@ -1,0 +1,67 @@
+/* ScoreBoard — session statistics
+   Intentionally low visual weight: muted text, no border, no background.
+   Stays out of the way until the user looks for it. */
+
+.board {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+
+  display: flex;
+  gap: var(--space-8);
+  justify-content: center;
+  align-items: baseline;
+
+  /* Give it a thin top separator to anchor it visually at the bottom */
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+
+  /* Subtle opacity so it truly recedes */
+  opacity: 0.75;
+}
+
+.stat {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+/* The label ("score:") stays muted */
+.label {
+  color: var(--color-text-muted);
+}
+
+/* The value gets slightly more weight */
+.value {
+  color: var(--color-text-secondary);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.restart {
+  margin-left: auto;
+  font-size: var(--font-size-sm);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-4);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.restart:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.restart:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* On very small screens, stack the stats */
+@media (max-width: 320px) {
+  .board {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+  }
+}

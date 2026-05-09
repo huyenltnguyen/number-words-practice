@@ -1,0 +1,88 @@
+/* ─────────────────────────────────────────────────────────────
+   command-line-chic  –  design tokens
+   Terminal aesthetic: deep navy, monospace, sharp edges.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  /* ── Surfaces ──────────────────────────────────────────────── */
+  --color-bg:               #0a0a23;   /* page background    */
+  --color-bg-secondary:     #1b1b32;   /* input wells, inset */
+  --color-surface:          #1b1b32;   /* card surfaces      */
+  --color-surface-raised:   #2a2a40;   /* elevated cards     */
+
+  /* ── Text ──────────────────────────────────────────────────── */
+  --color-text:             #ffffff;
+  --color-text-primary:     #f5f6f7;
+  --color-text-secondary:   #dfdfe2;
+  --color-text-muted:       #b0b3c0;
+  --color-text-inverse:     #0a0a23;
+
+  /* ── Borders ───────────────────────────────────────────────── */
+  --color-border:           #3b3b4f;
+  --color-border-strong:    #858591;
+
+  /* ── Accents ───────────────────────────────────────────────── */
+  --color-accent-yellow:    #f1be32;   /* primary action      */
+  --color-accent-blue:      #99c9ff;   /* interactive/links   */
+  --color-accent-green:     #acd157;   /* success             */
+  --color-accent-red:       #ffadad;   /* error               */
+  --color-accent-purple:    #dbb8ff;   /* decorative          */
+
+  /* Semantic aliases */
+  --color-success:          var(--color-accent-green);
+  --color-error:            var(--color-accent-red);
+  --color-accent:           var(--color-accent-yellow);
+
+  /* ── Focus ─────────────────────────────────────────────────── */
+  --color-focus:            #198eee;
+
+  /* ── Typography ─────────────────────────────────────────────  */
+  --font-mono:        'Hack-ZeroSlash', 'Fira Mono', 'Cascadia Code',
+                      Menlo, Consolas, 'Courier New', monospace;
+  --font-sans:        Lato, -apple-system, BlinkMacSystemFont,
+                      'Segoe UI', sans-serif;
+
+  /* Size scale  (base = 18px via html font-size) */
+  --font-size-xs:   0.75rem;   /* 13.5px */
+  --font-size-sm:   0.875rem;  /* 15.75px */
+  --font-size-base: 1rem;      /* 18px */
+  --font-size-md:   1.125rem;  /* 20.25px */
+  --font-size-lg:   1.5rem;    /* 27px */
+  --font-size-xl:   2rem;      /* 36px */
+  --font-size-xxl:  3rem;      /* 54px */
+  --font-size-3xl:  4.5rem;    /* 81px — hero number */
+
+  --line-height:    1.5;
+  --line-height-tight: 1.2;
+
+  /* ── Spacing (× 18px base) ──────────────────────────────────  */
+  --space-1:   0.25rem;   /*  4.5px */
+  --space-2:   0.5rem;    /*  9px   */
+  --space-3:   0.75rem;   /* 13.5px */
+  --space-4:   1rem;      /* 18px   */
+  --space-5:   1.25rem;   /* 22.5px */
+  --space-6:   1.5rem;    /* 27px   */
+  --space-8:   2rem;      /* 36px   */
+  --space-10:  2.5rem;    /* 45px   */
+  --space-12:  3rem;      /* 54px   */
+  --space-16:  4rem;      /* 72px   */
+  --space-20:  5rem;      /* 90px   */
+  --space-24:  6rem;      /* 108px  */
+
+  /* ── Borders ────────────────────────────────────────────────  */
+  --radius-none: 0;
+  --radius-sm:   2px;
+  --radius:      3px;
+  --radius-lg:   4px;
+
+  --border-width-thin:  1px;
+  --border-width-thick: 2px;
+
+  /* ── Transitions ─────────────────────────────────────────────  */
+  --transition-fast:   100ms ease;
+  --transition-base:   160ms ease;
+  --transition-slow:   260ms ease;
+
+  /* ── Shadows ─────────────────────────────────────────────────  */
+  --shadow-card:   0 2px 12px rgba(0, 0, 0, 0.45);
+  --shadow-inset:  inset 0 1px 3px rgba(0, 0, 0, 0.35);
+}

@@ -1,0 +1,235 @@
+/* ExerciseCard — focal point of the app
+   The number is the star: huge, monospace, centered.
+   Input is a terminal-style text field.
+   Submit is a full-width yellow button. */
+
+/* Card container ─────────────────────────────────────────────── */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+
+  /* Internal layout */
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  /* Clip child elements to border-radius */
+  overflow: hidden;
+}
+
+/* Number prompt — the hero ──────────────────────────────────── */
+.promptWrap {
+  padding: var(--space-10) var(--space-8) var(--space-8);
+  text-align: center;
+}
+
+.prompt {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.03em;
+
+  /* Allow wrapping on very small screens */
+  word-break: break-all;
+}
+
+/* Subdued label above the number */
+.promptLabel {
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+/* Input area ─────────────────────────────────────────────────── */
+.inputArea {
+  padding: var(--space-6) var(--space-6) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Input wrapper */
+.inputWrap {
+  display: flex;
+  align-items: flex-start;
+}
+
+.input {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  resize: none;
+  min-height: 5rem;
+
+  padding: var(--space-3) var(--space-4);
+  width: 100%;
+
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  /* Disable UA autocomplete chrome */
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color var(--transition-fast);
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* Focus: replace outline with a colored border — cleaner on dark bg */
+.input:focus-visible {
+  outline: none;
+  border-color: var(--color-accent-blue);
+  box-shadow: 0 0 0 2px rgba(153, 201, 255, 0.2);
+}
+
+.input:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Submit button ──────────────────────────────────────────────── */
+.submit {
+  font-size: var(--font-size-base);
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+
+  width: 100%;
+  padding: var(--space-4) var(--space-4);
+
+  background: var(--color-accent-yellow);
+  color: var(--color-text-inverse);
+  border: none;
+  border-radius: var(--radius-sm);
+
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.submit:hover:not(:disabled) {
+  background: #f5c842;
+}
+
+.submit:active:not(:disabled) {
+  transform: translateY(1px);
+  background: #d9a82e;
+}
+
+.submit:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.submitHint {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: 400;
+  opacity: 0.65;
+  margin-left: var(--space-2);
+}
+
+/* Responsive: reduce number size on very small screens */
+@media (max-width: 360px) {
+  .prompt {
+    font-size: var(--font-size-xxl);
+  }
+
+  .promptWrap {
+    padding: var(--space-8) var(--space-4) var(--space-6);
+  }
+
+  .inputArea {
+    padding: var(--space-4);
+  }
+}
+
+/* Word prompt — words-to-number mode */
+.wordPrompt {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  line-height: var(--line-height);
+  color: var(--color-text-primary);
+  word-break: break-word;
+  hyphens: auto;
+  text-align: start;
+  margin: 0;
+}
+
+/* Word prompt row */
+.wordPromptWrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.numberInputWrap {
+  width: 100%;
+}
+
+/* Single-line numeric input */
+.numberInput {
+  font-size: var(--font-size-lg);
+
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color var(--transition-fast);
+}
+
+.numberInput::placeholder {
+  color: var(--color-text-muted);
+}
+
+.numberInput:focus-visible {
+  outline: none;
+  border-color: var(--color-accent-blue);
+  box-shadow: 0 0 0 2px rgba(153, 201, 255, 0.2);
+}
+
+.numberInput:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+  .prompt {
+    font-size: var(--font-size-xxl);
+  }
+}
+
+@media (max-width: 480px) {
+  .promptWrap {
+    padding: var(--space-2);
+  }
+
+  .inputArea {
+    padding: var(--space-2);
+  }
+
+  .wordPromptWrap {
+    gap: var(--space-3);
+  }
+
+  .wordPrompt {
+    font-size: var(--font-size-md);
+  }
+}
